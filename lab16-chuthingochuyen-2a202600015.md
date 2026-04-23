@@ -17,7 +17,7 @@
 
 ## 2. Customer / Segment Card
 
-- **Segment name:** Phụ nữ lần đầu mang thai tại Việt Nam, 22–35 tuổi, có smartphone, đặc biệt là nhóm vừa nhận chẩn đoán bệnh lý kèm theo (tiểu đường thai kỳ, thiếu máu, cao huyết áp thai kỳ)
+- **Segment name:** Phụ nữ lần đầu mang thai tại Việt Nam, 22–35 tuổi, có smartphone
 - **Operational context:** Đang theo dõi thai kỳ định kỳ tại phòng khám sản, tự tra cứu thực phẩm được/không được ăn hằng ngày, cố gắng ăn đủ chất nhưng không có framework rõ ràng để biết "đủ" là bao nhiêu
 - **Recurring workflow:** Mỗi ngày phải quyết định ăn gì — đặc biệt khi có triệu chứng thai kỳ (buồn nôn T1, thèm đồ ngọt/mặn T2-T3), khi bác sĩ vừa thông báo có bệnh lý kèm theo, hoặc khi đơn giản là không biết tuần thai này cần bổ sung vi chất gì thêm
 - **Pain moment:** Khi vừa nhận kết quả xét nghiệm tiểu đường thai kỳ hoặc thiếu sắt — bác sĩ cho tờ giấy hướng dẫn chung chung, gia đình mỗi người một ý kiến, Google cho kết quả mâu thuẫn nhau, và không biết bắt đầu từ đâu với từng bữa ăn thực tế
@@ -159,8 +159,6 @@ Nếu chúng tôi deploy với 10,000 mẹ bầu Việt Nam qua các giai đoạ
 ---
 
 ## AI Critique Log (Transparency)
-
-*Phần này ghi lại quá trình dùng AI trong bài — theo đúng Research Rigor requirement của rubric.*
 
 **Structured Critique đã chạy:**
 - Issue phát hiện: "Need #2 (photo kcal tracking) là feature request trá hình" — *Team accept partial*: Need được reframe thành "muốn biết đã đủ vi chất chưa" (outcome), photo tracking chỉ là approach trong Strategy Statement, không phải need

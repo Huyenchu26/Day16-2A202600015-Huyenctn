@@ -113,7 +113,3 @@ Open questions chúng tôi muốn khám phá thêm ở Day 17:
 2. Có thể sử dụng kỹ thuật fake-AI/Wizard of Oz để test ý định sử dụng của tập user 50 người dùng đầu tiên ở khâu chụp hình đồ ăn tính calo không?
 3. Thiết kế prototype PRD thế nào để người dùng không cảm thấy ứng dụng mang tính y tế khô khan?
 ```
-
----
-
-*Lưu ý: Bạn có thể thay đổi các thông tin chi tiết tên nhóm/thành viên ở trên cùng cho phù hợp.*
