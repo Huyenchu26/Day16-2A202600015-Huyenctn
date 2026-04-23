@@ -33,7 +33,7 @@
 
 ### Need #1 (priority) — Không biết ăn gì đúng khi có bệnh lý thai kỳ kèm theo
 
-- **Statement (JTBD):** When I am in my second trimester and just diagnosed with gestational diabetes, I want to know exactly what Vietnamese foods to eat each day to control blood sugar without starving myself or my baby, so I can avoid complications and stop feeling anxious about every single meal decision.
+- **Statement (JTBD):** Khi tôi đang ở tam cá nguyệt thứ hai và vừa được chẩn đoán tiểu đường thai kỳ, tôi muốn biết chính xác nên ăn những món Việt nào mỗi ngày để kiểm soát đường huyết mà không bị thiếu chất cho bản thân và thai nhi, để tôi có thể tránh biến chứng và không còn lo lắng về từng quyết định bữa ăn.
 - **Current workaround:** Hỏi bác sĩ (thường chỉ nhận được hướng dẫn 1 trang chung chung), tra Google (thông tin mâu thuẫn và không theo ngữ cảnh Việt Nam), hỏi group mẹ bầu (kinh nghiệm cá nhân không đảm bảo về y tế), nhờ người thân nấu theo kinh nghiệm dân gian
 - **Pain signal:** Anxiety cao sau mỗi bữa ăn ("không biết mình ăn thế này có sao không"); rủi ro y tế thực sự nếu đường huyết không kiểm soát tốt (ảnh hưởng thai nhi); mất 15–30 phút/ngày tra cứu thông tin mâu thuẫn
 - **Evidence / proxy evidence:**
@@ -47,7 +47,7 @@
 
 ### Need #2 — Không biết mình đã ăn đủ vi chất chưa sau mỗi bữa
 
-- **Statement (JTBD):** When I finish a meal, I want to instantly know whether I've consumed enough iron, folate, calcium, and DHA for this week of pregnancy, so I can adjust my next meal proactively before a deficiency develops and shows up on my next blood test.
+- **Statement (JTBD):** Khi tôi ăn xong một bữa, tôi muốn biết ngay liệu mình đã nạp đủ sắt, folate, canxi và DHA cho tuần thai này chưa, để tôi có thể điều chỉnh bữa tiếp theo một cách chủ động trước khi tình trạng thiếu hụt xảy ra và hiện ra trong kết quả xét nghiệm lần sau.
 - **Current workaround:** Không theo dõi gì cả (đa số); đọc nhãn thực phẩm đóng gói (không áp dụng cho món nấu tại nhà); nhập tay từng nguyên liệu vào app (quá tốn thời gian → bỏ sau 2–3 ngày)
 - **Pain signal:** Thiếu vi chất thường phát hiện muộn qua xét nghiệm định kỳ (mỗi 4–8 tuần); cảm giác lo lắng và thiếu kiểm soát; barrier nhập liệu cao khiến không ai duy trì được thói quen tracking
 - **Evidence / proxy evidence:**
@@ -60,7 +60,7 @@
 
 ### Need #3 — Gợi ý thực đơn không thực tế với ẩm thực Việt hàng ngày
 
-- **Statement (JTBD):** When I receive a meal recommendation, I want it to suggest familiar Vietnamese dishes I can actually cook at home or buy at the local market or cơm tấm stall, so I can follow the plan without hunting for foreign ingredients or spending extra time and money.
+- **Statement (JTBD):** Khi tôi nhận được gợi ý thực đơn, tôi muốn được gợi ý những món Việt quen thuộc mà tôi thực sự có thể nấu tại nhà hoặc mua tại chợ địa phương hay quán cơm tấm, để tôi có thể theo kế hoạch mà không phải tìm nguyên liệu lạ hay tốn thêm thời gian và tiền bạc.
 - **Current workaround:** Bỏ qua gợi ý của app, tự nấu theo thói quen cũ và cộng thêm viên supplement cho chắc
 - **Pain signal:** Compliance thấp → hiệu quả dinh dưỡng thực tế kém dù đã có plan; tiền mua supplement không cần thiết do thiếu thông tin cụ thể về thực phẩm
 - **Evidence / proxy evidence:**
@@ -73,23 +73,14 @@
 ## 4. Strategy Statement
 
 ```
-For first-time pregnant and breastfeeding women in Vietnam (22–35, smartphone users)
-who struggle with knowing what to eat at each specific trimester stage when also managing
-gestational conditions (diabetes, anemia, hypertension),
+Dành cho phụ nữ mang thai lần đầu và đang cho con bú tại Việt Nam (22–35 tuổi, có smartphone)
+đang gặp khó khăn trong việc biết nên ăn gì ở từng giai đoạn thai kỳ cụ thể khi đồng thời
+phải quản lý các bệnh lý thai kỳ (tiểu đường, thiếu máu, cao huyết áp),
 
-our product helps them follow a personalized, stage-specific Vietnamese meal plan
-that is medically grounded, culturally familiar, and frictionless to track,
+sản phẩm của chúng tôi giúp họ tuân theo một kế hoạch thực đơn Việt Nam cá nhân hóa theo giai đoạn, có nền tảng y khoa, phù hợp văn hóa và dễ dàng theo dõi,
 
-through AI-generated daily menus adapted to pregnancy week + health condition +
-personal food preferences, plus automatic kcal and micronutrient tracking from
-food photos (no manual entry),
-
-unlike generic nutrition apps (MyFitnessPal, Cronometer) that have no pregnancy
-protocol or Vietnamese food database, or doctor handouts that give one-size-fits-all advice,
-
-because we can leverage a growing ground-truth dataset of Vietnamese dishes with
-pregnancy-specific nutritional mapping, combined with vision AI trained on Vietnamese
-food photos contributed by users — creating an asset no global app will build.
+thông qua thực đơn hàng ngày được AI tạo ra, thích ứng theo tuần thai + tình trạng sức khỏe +
+sở thích ẩm thực cá nhân, cùng với tính năng tự động tính kcal và vi chất từ ảnh bữa ăn (không cần nhập tay), khác với các app dinh dưỡng chung chung (MyFitnessPal, Cronometer) không có giao thức thai kỳ hay database thực phẩm Việt, hoặc các tờ hướng dẫn từ bác sĩ chỉ mang tính chung chung, vì chúng tôi có thể tận dụng bộ dữ liệu ground-truth ngày càng mở rộng về món Việt với bản đồ dinh dưỡng đặc thù thai kỳ, kết hợp với vision AI được huấn luyện trên ảnh thực phẩm Việt do người dùng đóng góp — tạo ra một tài sản mà không có app toàn cầu nào sẽ xây dựng.
 ```
 
 ---
@@ -116,9 +107,9 @@ Nếu chúng tôi deploy với 10,000 mẹ bầu Việt Nam qua các giai đoạ
 
 | Layer | Estimate | Key assumptions | Confidence |
 |---|---|---|---|
-| **TAM** | $3–5B/year | ~130M births/year globally; 40% in smartphone-accessible markets; assume $5/month × 12 months × 50% coverage in pregnancy + breastfeeding period | Low |
-| **SAM** | $80–150M/year | VN: 1.4M births/year × 30% early adopter × $4/month × 10 months avg = ~$17M; mở rộng SEA 3 thị trường (Thailand, Philippines, Indonesia): thêm ~5M births × 20% × $4/month × 10 months = ~$40M; tổng có thể reach $80–150M/year | Medium |
-| **SOM** | $600K–1.2M ARR (18 tháng) | 15,000–25,000 paying users tại VN; $4/month average; đạt được qua 8–12 phòng khám sản tư nhân + community activation; churn ~5%/month | Low–Medium |
+| **TAM** | $3–5B/năm | ~130 triệu ca sinh/năm toàn cầu; 40% ở các thị trường có thể tiếp cận qua smartphone; giả định $5/tháng × 12 tháng × độ phủ 50% trong giai đoạn mang thai + cho con bú | Thấp |
+| **SAM** | $80–150M/năm | VN: 1.4M births/year × 30% early adopter × $4/month × 10 months avg = ~$17M; mở rộng SEA 3 thị trường (Thailand, Philippines, Indonesia): thêm ~5M births × 20% × $4/month × 10 months = ~$40M; tổng có thể reach $80–150M/year | Medium |
+| **SOM** | $600K–1.2M ARR (18 tháng) | 15.000–25.000 người dùng trả phí tại VN; $4/month average; đạt được qua 8–12 phòng khám sản tư nhân + community activation; churn ~5%/month | Low–Medium |
 
 **Top 3 unknowns requiring further research:**
 
@@ -127,9 +118,9 @@ Nếu chúng tôi deploy với 10,000 mẹ bầu Việt Nam qua các giai đoạ
 3. **Điều kiện để bác sĩ sản recommend app:** Bác sĩ cần gì để tin tưởng và chủ động giới thiệu app cho bệnh nhân? Clinical validation? Pilot data? Cơ chế hoa hồng? *(Cần phỏng vấn 10–15 bác sĩ sản tư nhân)*
 
 **Judgment:**
-- [x] Worth pursuing, but validate willingness to pay and clinical partnership path first before building full product
-- [ ] Worth pursuing but not now
-- [ ] Not worth pursuing as currently framed
+- [x] Đáng theo đuổi, nhưng cần validate khả năng chấp nhận trả tiền và con đường đối tác lâm sàng trước khi xây dựng sản phẩm hoàn chỉnh
+- [ ] Đáng theo đuổi nhưng chưa phải lúc này
+- [ ] Không đáng theo đuổi với cách định hình hiện tại
 
 > **Lý do:** Need #1 là need thật và gắn với consequence y tế rõ ràng. Thị trường VN đủ lớn cho giai đoạn đầu. Tuy nhiên, toàn bộ SOM assumption phụ thuộc vào willingness to pay và khả năng clinic adoption — cả hai đều là unknown cần validate trước khi đầu tư vào build.
 
@@ -170,6 +161,3 @@ Nếu chúng tôi deploy với 10,000 mẹ bầu Việt Nam qua các giai đoạ
 - **Assumptions**: Willingness to pay $4/month; 30% early adopter rate; clinic adoption feasible; photo logging retention benefit
 - **Unknowns**: Xem mục 6 Top 3 unknowns
 
----
-
-*Submitted: Day 16 — April 23, 2026*
