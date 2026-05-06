@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NestAI — Investor Package | Chu Thị Ngọc Huyền</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; font-size: 11pt; color: #1a1a1a; background: #fff; }
+
+  /* Page setup */
+  @page { size: A4; margin: 20mm 18mm; }
+  .page { width: 210mm; min-height: 297mm; padding: 18mm; page-break-after: always; position: relative; }
+  .page:last-child { page-break-after: avoid; }
+
+  /* Typography */
+  h1 { font-size: 28pt; font-weight: 700; letter-spacing: -0.5px; }
+  h2 { font-size: 14pt; font-weight: 700; margin-bottom: 8px; border-bottom: 2px solid #1a1a1a; padding-bottom: 4px; }
+  h3 { font-size: 11pt; font-weight: 700; margin: 12px 0 4px; color: #2c5f2e; }
+  h4 { font-size: 10pt; font-weight: 700; margin: 8px 0 3px; }
+  p { margin-bottom: 7px; line-height: 1.6; }
+  li { margin-bottom: 4px; line-height: 1.5; }
+  ul { margin-left: 16px; margin-bottom: 8px; }
+
+  /* Brand colors */
+  .brand { color: #2c5f2e; }
+  .accent { color: #5a8a5c; }
+  .muted { color: #555; font-size: 9.5pt; }
+  .tag { display: inline-block; background: #e8f4e8; color: #2c5f2e; padding: 2px 8px; border-radius: 3px; font-size: 9pt; font-weight: 600; margin-right: 4px; }
+
+  /* ---- PAGE 1: COVER ---- */
+  .cover { background: #f8fbf8; }
+  .cover-top { margin-bottom: 30px; }
+  .logo { font-size: 42pt; font-weight: 900; color: #2c5f2e; letter-spacing: -2px; }
+  .tagline { font-size: 13pt; color: #555; margin-top: 4px; font-style: italic; }
+  .cover-divider { border: none; border-top: 3px solid #2c5f2e; margin: 20px 0; }
+  .doc-title { font-size: 16pt; font-weight: 700; color: #1a1a1a; text-transform: uppercase; letter-spacing: 2px; }
+  .doc-meta { font-size: 10pt; color: #666; margin-top: 6px; }
+  .tweet-box { background: #fff; border: 2px solid #2c5f2e; border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+  .tweet-label { font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #2c5f2e; margin-bottom: 8px; }
+  .tweet-text { font-size: 11.5pt; line-height: 1.7; color: #1a1a1a; }
+  .tweet-count { font-size: 8.5pt; color: #888; margin-top: 8px; text-align: right; }
+  .kpi-row { display: flex; gap: 16px; margin-top: 20px; }
+  .kpi { flex: 1; background: #fff; border: 1px solid #cce5cc; border-radius: 6px; padding: 12px; text-align: center; }
+  .kpi-num { font-size: 18pt; font-weight: 900; color: #2c5f2e; display: block; }
+  .kpi-label { font-size: 8.5pt; color: #555; margin-top: 2px; line-height: 1.3; }
+  .cover-footer { position: absolute; bottom: 18mm; left: 18mm; right: 18mm; font-size: 8.5pt; color: #999; border-top: 1px solid #ddd; padding-top: 8px; display: flex; justify-content: space-between; }
+
+  /* ---- PAGES 2-5: CONTENT ---- */
+  .section-header { background: #2c5f2e; color: white; padding: 5px 10px; font-size: 8.5pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; border-radius: 3px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .card { background: #f8fbf8; border: 1px solid #cce5cc; border-radius: 6px; padding: 12px; }
+  .card h3 { color: #2c5f2e; margin-top: 0; }
+  .highlight { background: #e8f4e8; border-left: 3px solid #2c5f2e; padding: 8px 12px; margin: 10px 0; border-radius: 0 4px 4px 0; font-size: 10.5pt; }
+  .small { font-size: 9.5pt; color: #444; }
+  .number { font-size: 20pt; font-weight: 900; color: #2c5f2e; display: block; }
+
+  /* ---- TABLE ---- */
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9.5pt; }
+  th { background: #2c5f2e; color: white; padding: 6px 10px; text-align: left; font-size: 9pt; font-weight: 600; }
+  td { padding: 5px 10px; border-bottom: 1px solid #e0ece0; vertical-align: top; }
+  tr:nth-child(even) td { background: #f4faf4; }
+  .bold { font-weight: 700; }
+
+  /* ---- FINANCIAL ---- */
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0; }
+  .metric { text-align: center; background: #f8fbf8; border: 1px solid #cce5cc; border-radius: 6px; padding: 10px 6px; }
+  .metric .num { font-size: 16pt; font-weight: 900; color: #2c5f2e; display: block; }
+  .metric .lbl { font-size: 8pt; color: #555; line-height: 1.3; }
+  .funnel { margin: 12px 0; }
+  .funnel-row { display: flex; align-items: center; margin: 4px 0; }
+  .funnel-bar { height: 22px; background: #2c5f2e; border-radius: 3px; display: flex; align-items: center; padding: 0 8px; color: white; font-size: 8.5pt; font-weight: 600; min-width: 80px; }
+  .funnel-label { font-size: 9pt; margin-left: 10px; color: #333; }
+
+  /* ---- ROADMAP ---- */
+  .roadmap-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .roadmap-col { border-radius: 6px; padding: 12px; }
+  .col-now { background: #e8f4e8; border: 2px solid #2c5f2e; }
+  .col-next { background: #fff8e6; border: 2px solid #c8960c; }
+  .col-later { background: #f0f0f0; border: 2px solid #888; }
+  .col-title { font-weight: 900; font-size: 11pt; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .col-now .col-title { color: #2c5f2e; }
+  .col-next .col-title { color: #8a6500; }
+  .col-later .col-title { color: #555; }
+  .roadmap-item { font-size: 9.5pt; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.1); line-height: 1.4; }
+  .roadmap-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .okr-box { background: #f8fbf8; border: 1px solid #cce5cc; border-radius: 6px; padding: 14px; margin: 10px 0; }
+  .okr-o { font-size: 11.5pt; font-style: italic; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; line-height: 1.5; }
+  .kr-row { display: grid; grid-template-columns: 60px 1fr; gap: 8px; margin-bottom: 8px; align-items: start; }
+  .kr-badge { background: #2c5f2e; color: white; font-size: 8pt; font-weight: 700; padding: 3px 6px; border-radius: 3px; text-align: center; }
+  .kr-text { font-size: 10pt; line-height: 1.5; }
+  .kr-why { font-size: 8.5pt; color: #666; font-style: italic; margin-top: 2px; }
+
+  /* ---- RISK / CRITICAL PATH ---- */
+  .risk-card { border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px; margin-bottom: 10px; }
+  .risk-title { font-weight: 700; font-size: 10.5pt; color: #1a1a1a; margin-bottom: 6px; }
+  .risk-label { display: inline-block; font-size: 8pt; font-weight: 700; padding: 2px 7px; border-radius: 2px; margin-right: 6px; }
+  .risk-worst { background: #ffe4e4; color: #c0392b; }
+  .risk-planb { background: #e4f0ff; color: #1a5276; }
+  .risk-cost { background: #fff3e0; color: #e67e22; }
+  .cp-container { font-family: monospace; font-size: 8.5pt; background: #f5f5f5; border-radius: 6px; padding: 12px; margin: 10px 0; line-height: 1.8; white-space: pre; overflow: hidden; }
+  .cp-table { font-size: 9pt; }
+
+  /* Page number */
+  .page-num { position: absolute; bottom: 10mm; right: 18mm; font-size: 8pt; color: #aaa; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1: COVER + TWITTER PITCH -->
+<!-- ============================================================ -->
+<div class="page cover">
+  <div class="cover-top">
+    <div class="logo">NestAI</div>
+    <div class="tagline">AI Nutrition Companion cho Mẹ Bầu Việt Nam</div>
+  </div>
+  <hr class="cover-divider">
+  <div class="doc-title">Milestone 1 — Investor Package</div>
+  <div class="doc-meta">Chu Thị Ngọc Huyền &nbsp;·&nbsp; MSSV 2A202600015 &nbsp;·&nbsp; Tháng 5, 2026</div>
+
+  <div class="tweet-box">
+    <div class="tweet-label">Twitter Pitch (276 ký tự)</div>
+    <div class="tweet-text">25% mẹ bầu VN bị tiểu đường thai kỳ. NestAI giúp họ dứt điểm nỗi sợ "ăn sai hại con" bằng AI sinh thực đơn món Việt và tracking qua ảnh khớp phác đồ y khoa. Pilot: compliance D14 &gt;50%, retention 35%. Gọi 500K$ Seed để scale qua 20 phòng khám, chốt data moat trong 12 tháng.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <span class="kpi-num">350K</span>
+      <div class="kpi-label">ca bệnh lý thai kỳ/năm tại VN</div>
+    </div>
+    <div class="kpi">
+      <span class="kpi-num">&gt;50%</span>
+      <div class="kpi-label">Menu compliance rate D14 (pilot)</div>
+    </div>
+    <div class="kpi">
+      <span class="kpi-num">35%</span>
+      <div class="kpi-label">D30 Retention sau Aha Moment</div>
+    </div>
+    <div class="kpi">
+      <span class="kpi-num">4.2×</span>
+      <div class="kpi-label">LTV/CAC dự kiến</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <span class="tag">Seed Round: $500,000 USD</span>
+    <span class="tag">20 phòng khám sản</span>
+    <span class="tag">10K paying users / 12 tháng</span>
+  </div>
+
+  <div class="cover-footer">
+    <span>NestAI — Confidential Investor Package</span>
+    <span>Tháng 5, 2026 | VinUni AI Product Course</span>
+    <span>1</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 2: PITCH MEMO — PROBLEM + INSIGHT + SOLUTION -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">Pitch Memo — Trang 1/2</div>
+
+  <h2>The Problem</h2>
+  <p>Hơn 25% phụ nữ mang thai tại Việt Nam (~350.000 ca/năm) mắc tiểu đường thai kỳ hoặc thiếu máu. Mỗi ngày, họ mất 20–30 phút tra Google trong hoang mang vì sợ "ăn sai sẽ hại thai nhi" — dẫn đến lo âu tột độ và tỷ lệ không tuân thủ dinh dưỡng cao, gây nguy hiểm thực sự cho mẹ và con.</p>
+
+  <div class="highlight">Sự hoang mang không đến từ thiếu thông tin — mà đến từ thông tin đứt gãy: bác sĩ sản không có thời gian thiết kế thực đơn chi tiết, còn các app quốc tế (MyFitnessPal) hoàn toàn mù tịt về bún bò, phở, cơm tấm và không hiểu phác đồ bệnh lý Việt Nam.</div>
+
+  <h2 style="margin-top:16px;">The Solution</h2>
+  <div class="three-col" style="margin-top: 10px;">
+    <div class="card">
+      <h3>AI Menu Generation</h3>
+      <p class="small">Sinh thực đơn cả ngày gồm món Việt có GI thấp, đúng trimester, đúng bệnh lý. GPT-4o + phác đồ Bộ Y tế VN nhúng trực tiếp vào database.</p>
+    </div>
+    <div class="card">
+      <h3>Instant Meal Swap</h3>
+      <p class="small">Tap 1 món → nhận ngay món thay thế kèm lý do dinh dưỡng cụ thể. Đây là Aha Moment: khi user swap và tin hệ thống, habit bắt đầu hình thành.</p>
+    </div>
+    <div class="card">
+      <h3>Fallback Safety</h3>
+      <p class="small">Confidence &lt;60% → badge "Ước tính (~)". Triệu chứng bất thường → ngắt flow, hiển thị hotline bác sĩ. Không single-point-of-failure.</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:16px;">Why Now</h2>
+  <div class="two-col">
+    <div>
+      <h4>Công nghệ đủ trưởng thành</h4>
+      <p class="small">Vision AI nhận diện thức ăn từ ảnh điện thoại. LLM sinh structured output có điều kiện phức tạp (trimester × bệnh lý × region). Cả hai mới đủ tốt để làm điều này trong 18 tháng qua.</p>
+    </div>
+    <div>
+      <h4>Hành vi user đã sẵn sàng</h4>
+      <p class="small">Mẹ bầu Millennial/GenZ đã quen tracking thai kỳ qua app và chụp ảnh thay vì nhập tay. Không cần thay đổi hành vi — chỉ cần tool tốt hơn những gì họ đang dùng.</p>
+    </div>
+  </div>
+
+  <div class="page-num">2</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 3: PITCH MEMO — TRACTION + ASK + MOAT -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">Pitch Memo — Trang 2/2</div>
+
+  <h2>Traction & Proof</h2>
+  <div class="three-col">
+    <div class="metric">
+      <span class="num">&gt;50%</span>
+      <div class="lbl">Menu Compliance Rate D14</div>
+    </div>
+    <div class="metric">
+      <span class="num">35%</span>
+      <div class="lbl">D30 Retention (nhóm đạt compliance)</div>
+    </div>
+    <div class="metric">
+      <span class="num">D3</span>
+      <div class="lbl">Aha Moment: swap thành công lần đầu</div>
+    </div>
+    <div class="metric">
+      <span class="num">4.2×</span>
+      <div class="lbl">LTV/CAC dự kiến, payback 3 tháng</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:16px;">The Ask</h2>
+  <div class="highlight" style="font-size:11pt;">
+    <strong>$500,000 USD — Seed Round</strong><br>
+    Chạy pilot với 20 phòng khám sản tại TP.HCM và Hà Nội → đạt 10.000 người dùng trả phí và thu thập 1 triệu ảnh bữa ăn ground-truth trong 12 tháng → đóng kín data moat không thể bị sao chép.
+  </div>
+
+  <h2 style="margin-top:16px;">Moat — Data Flywheel</h2>
+  <div class="two-col">
+    <div>
+      <h3>Cơ chế compound</h3>
+      <ul class="small">
+        <li>Mỗi ảnh bữa ăn user chụp → ground truth cho Vietnamese food DB</li>
+        <li>Mỗi lần swap → tín hiệu preference → gợi ý cá nhân hóa hơn</li>
+        <li>Compliance cao → word-of-mouth trong group mẹ bầu → thêm user</li>
+        <li>Thêm user → DB tốt hơn → moat lớn hơn</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Tại sao không ai copy được</h3>
+      <ul class="small">
+        <li>Global apps (MyFitnessPal, Ovia) không có incentive xây Vietnamese food DB đủ depth</li>
+        <li>Ground truth kcal/nutrient cho món Việt cần cộng đồng trong nước + dietitian review</li>
+        <li>Bác sĩ chỉ recommend tool họ đã thấy outcome tốt — switching cost cao sau khi embed</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-num">3</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 4: MARKET ANALYSIS -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">Market Analysis — Day 16</div>
+
+  <h2>Market Size (TAM / SAM / SOM)</h2>
+  <table>
+    <tr>
+      <th>Layer</th>
+      <th>Estimate</th>
+      <th>Key Assumptions</th>
+      <th>Confidence</th>
+    </tr>
+    <tr>
+      <td class="bold">TAM</td>
+      <td>$3–5B/năm</td>
+      <td>~130M ca sinh/năm toàn cầu; 40% có smartphone; $5/tháng × 10 tháng</td>
+      <td>Thấp</td>
+    </tr>
+    <tr>
+      <td class="bold">SAM</td>
+      <td>$80–150M/năm</td>
+      <td>VN 1.4M births/year + SEA 3 thị trường (Thailand, Philippines, Indonesia)</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td class="bold">SOM</td>
+      <td>$600K–1.2M ARR (18 tháng)</td>
+      <td>15K–25K paying users tại VN; $4/month; 8–12 phòng khám + community; churn ~5%/month</td>
+      <td>Low–Medium</td>
+    </tr>
+  </table>
+
+  <h2 style="margin-top:14px;">Customer Segment</h2>
+  <div class="highlight">
+    Phụ nữ mang thai lần đầu tại Việt Nam (22–35 tuổi), đang ở Trimester 2 hoặc 3, vừa nhận chẩn đoán tiểu đường thai kỳ hoặc thiếu máu thiếu sắt, có smartphone và đang tự tra cứu thực đơn hàng ngày.
+  </div>
+
+  <div class="two-col" style="margin-top: 12px;">
+    <div>
+      <h3>Pain Evidence (Facts)</h3>
+      <ul class="small">
+        <li>Tiểu đường thai kỳ tại VN: ~20–25% (BV Phụ sản TW, 2022)</li>
+        <li>Thiếu máu thiếu sắt: ~40% phụ nữ mang thai (WHO SEA)</li>
+        <li>Facebook group "Mẹ bầu VN": 500k+ thành viên — top posts hàng tuần đều hỏi "tiểu đường thai kỳ ăn gì"</li>
+        <li>App dinh dưỡng: D30 retention chỉ ~5–10% do barrier nhập liệu thủ công</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Why Underserved</h3>
+      <ul class="small">
+        <li>Dietitian chuyên thai kỳ rất thiếu tại VN, chi phí 500K–1.5M VND/buổi</li>
+        <li>Bác sĩ sản: 10–15 phút khám, không đủ thời gian tư vấn dinh dưỡng</li>
+        <li>Không có app nào hiểu đồng thời: giai đoạn thai + bệnh lý + ẩm thực Việt</li>
+        <li>MyFitnessPal/Cronometer: database món Việt rất nghèo (thiếu bún bò, cơm tấm, canh chua)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 style="margin-top:14px;">Top 3 Unknowns Cần Validate</h2>
+  <table class="small">
+    <tr><th>#</th><th>Unknown</th><th>Cách test</th></tr>
+    <tr><td>1</td><td>Willingness to pay thực tế tại VN (ngưỡng giá chấp nhận được)</td><td>In-depth interview 30–50 mẹ bầu</td></tr>
+    <tr><td>2</td><td>Accuracy photo kcal estimation với món Việt (bún bò, phở, cơm tấm)</td><td>Benchmark test với Vision AI</td></tr>
+    <tr><td>3</td><td>Điều kiện để bác sĩ sản chủ động recommend app cho bệnh nhân</td><td>Phỏng vấn 10–15 bác sĩ sản tư nhân</td></tr>
+  </table>
+
+  <div class="page-num">4</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 5: PRD SUMMARY -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">PRD Summary — Day 17</div>
+
+  <div class="two-col">
+    <div>
+      <h2>MVP Scope</h2>
+      <h3>In-Scope (3 tính năng)</h3>
+      <ul class="small">
+        <li><strong>Onboarding &amp; Profile</strong> — Thu thập trimester, bệnh lý, vùng miền, dị ứng để personalize menu</li>
+        <li><strong>Menu Generation</strong> — AI sinh thực đơn cả ngày, món Việt, chuẩn GI, đúng tuần thai</li>
+        <li><strong>Photo-based Meal Logging</strong> — Chụp ảnh → ước tính kcal + vi chất (fallback: manual entry)</li>
+      </ul>
+      <h3>Out-of-Scope (MVP)</h3>
+      <ul class="small">
+        <li>Tích hợp dữ liệu xét nghiệm từ bệnh viện</li>
+        <li>Gợi ý supplement cụ thể (rủi ro y tế)</li>
+        <li>Chat/hỏi đáp tự do với AI</li>
+        <li>Android (chỉ iOS trong MVP)</li>
+        <li>Thanh toán trong app</li>
+      </ul>
+    </div>
+    <div>
+      <h2>User Stories</h2>
+      <div class="card" style="margin-bottom: 10px;">
+        <h4>Story 1 — Tiểu đường thai kỳ</h4>
+        <p class="small">Mẹ bầu tuần 26 → nhận thực đơn cả ngày món Việt GI thấp → không phải Google mỗi sáng và giảm lo âu về đường huyết.<br><em>Metric: Compliance D14 ≥ 50%</em></p>
+      </div>
+      <div class="card">
+        <h4>Story 2 — Meal Logging</h4>
+        <p class="small">Mẹ bầu ăn trưa tại quán → chụp ảnh → biết ngay đã nạp bao nhiêu sắt/folate → quyết định bữa tối không cần nhập tay.<br><em>Metric: ≥30% user chụp ≥3 ảnh/tuần trong 7 ngày đầu</em></p>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 14px;">AI Architecture &amp; Safety</h2>
+  <table class="small">
+    <tr><th>Layer</th><th>Lựa chọn</th><th>Lý do / Trade-off</th></tr>
+    <tr><td>Menu Generation</td><td>GPT-4o</td><td>Xử lý tốt structured output phức tạp (trimester × bệnh lý × region). Đắt ~10x GPT-3.5 nhưng bắt buộc vì sai sót nutrition có hậu quả y tế.</td></tr>
+    <tr><td>Food Recognition</td><td>GCP Vision + rule-based fallback</td><td>Pre-trained baseline cho MVP; fallback lookup 200 món Việt đã verify khi confidence &lt;60%.</td></tr>
+    <tr><td>Data Source</td><td>Viện Dinh dưỡng QG + WHO/FAO + Bộ Y tế VN</td><td>Review bán niên bởi dietitian; retrain food model mỗi quý với user corrections đã verify.</td></tr>
+    <tr><td>Fallback UX</td><td>Badge "~" + hotline bác sĩ</td><td>Confidence &lt;60% → không hiển thị số tuyệt đối. Triệu chứng bất thường → ngắt flow ngay.</td></tr>
+  </table>
+
+  <div class="highlight" style="margin-top: 12px;">
+    <strong>Riskiest Assumption:</strong> Mẹ bầu sẽ thực sự follow thực đơn AI ít nhất 3 ngày/tuần — không chỉ xem rồi bỏ qua như tờ hướng dẫn bác sĩ. Nếu sai, không có outcome y tế, không có data flywheel, không có lý do trả tiền.
+  </div>
+
+  <div class="page-num">5</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 6: FINANCIAL MODEL -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">Financial Model — Day 18</div>
+
+  <h2>Unit Economics</h2>
+  <div class="metric-grid">
+    <div class="metric">
+      <span class="num">$4</span>
+      <div class="lbl">ARPU/tháng (99K VND)</div>
+    </div>
+    <div class="metric">
+      <span class="num">~$50</span>
+      <div class="lbl">LTV (avg. pregnancy lifecycle)</div>
+    </div>
+    <div class="metric">
+      <span class="num">~$12</span>
+      <div class="lbl">CAC (community + clinic channel)</div>
+    </div>
+    <div class="metric">
+      <span class="num">4.2×</span>
+      <div class="lbl">LTV/CAC ratio</div>
+    </div>
+  </div>
+  <div class="metric-grid">
+    <div class="metric">
+      <span class="num">3 mo.</span>
+      <div class="lbl">Payback Period</div>
+    </div>
+    <div class="metric">
+      <span class="num">35%</span>
+      <div class="lbl">D30 Retention (target)</div>
+    </div>
+    <div class="metric">
+      <span class="num">~5%</span>
+      <div class="lbl">Monthly Churn (assumed)</div>
+    </div>
+    <div class="metric">
+      <span class="num">$500K</span>
+      <div class="lbl">Seed Round Ask</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 14px;">12-Month Revenue Projection</h2>
+  <table>
+    <tr>
+      <th>Milestone</th>
+      <th>Timeline</th>
+      <th>Paying Users</th>
+      <th>MRR</th>
+      <th>ARR Run-rate</th>
+    </tr>
+    <tr>
+      <td>MVP Pilot Launch</td>
+      <td>Tháng 1–3</td>
+      <td>100</td>
+      <td>$400</td>
+      <td>$4,800</td>
+    </tr>
+    <tr>
+      <td>3 Phòng khám sản</td>
+      <td>Tháng 4–6</td>
+      <td>1,000</td>
+      <td>$4,000</td>
+      <td>$48,000</td>
+    </tr>
+    <tr>
+      <td>10 Phòng khám + Facebook</td>
+      <td>Tháng 7–9</td>
+      <td>4,000</td>
+      <td>$16,000</td>
+      <td>$192,000</td>
+    </tr>
+    <tr>
+      <td class="bold">20 Phòng khám — Full Scale</td>
+      <td class="bold">Tháng 10–12</td>
+      <td class="bold">10,000</td>
+      <td class="bold">$40,000</td>
+      <td class="bold">$480,000–$600K</td>
+    </tr>
+  </table>
+
+  <h2 style="margin-top: 14px;">Conversion Funnel (Seed Phase)</h2>
+  <div class="funnel">
+    <div class="funnel-row">
+      <div class="funnel-bar" style="width: 100%;">500 Pilot Users</div>
+      <span class="funnel-label">Onboarded qua phòng khám sản + Facebook groups</span>
+    </div>
+    <div class="funnel-row">
+      <div class="funnel-bar" style="width: 70%; background: #3a7a3c;">350 Active</div>
+      <span class="funnel-label">70% activation rate (nhận menu lần đầu)</span>
+    </div>
+    <div class="funnel-row">
+      <div class="funnel-bar" style="width: 50%; background: #4a8c4c;">250 Compliance</div>
+      <span class="funnel-label">50% compliance D14 — Aha Moment đạt được</span>
+    </div>
+    <div class="funnel-row">
+      <div class="funnel-bar" style="width: 20%; background: #5a9e5c;">100 Paying</div>
+      <span class="funnel-label">20% của 500 → freemium → paid ($4/month)</span>
+    </div>
+    <div class="funnel-row">
+      <div class="funnel-bar" style="width: 7%; background: #6ab06e;">35 D30 Retain</div>
+      <span class="funnel-label">35% D30 retention của paying users</span>
+    </div>
+  </div>
+
+  <div class="page-num">6</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 7: BURN RATE + USE OF FUNDS -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">Use of Funds + Break-even — Day 18</div>
+
+  <h2>Seed $500K — Allocation Plan</h2>
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Budget</th>
+      <th>%</th>
+      <th>Key Activities</th>
+    </tr>
+    <tr>
+      <td><strong>Product &amp; Engineering</strong></td>
+      <td>$180,000</td>
+      <td>36%</td>
+      <td>2 engineers (full-stack + AI/ML), 12 months; API costs GPT-4o + GCP Vision</td>
+    </tr>
+    <tr>
+      <td><strong>Clinical &amp; Data</strong></td>
+      <td>$80,000</td>
+      <td>16%</td>
+      <td>1 dietitian partner (review DB + protocol); Vietnamese food dataset build; 4× quarterly retraining</td>
+    </tr>
+    <tr>
+      <td><strong>Growth &amp; Distribution</strong></td>
+      <td>$120,000</td>
+      <td>24%</td>
+      <td>Clinic partnership (20 OBGYNs); Facebook group seeding; KOL partnerships mẹ bầu</td>
+    </tr>
+    <tr>
+      <td><strong>Operations</strong></td>
+      <td>$70,000</td>
+      <td>14%</td>
+      <td>1 operations lead; legal/compliance; infrastructure</td>
+    </tr>
+    <tr>
+      <td><strong>Runway Buffer</strong></td>
+      <td>$50,000</td>
+      <td>10%</td>
+      <td>3-month buffer; Plan B triggers (USDA fallback $3K; PWA conversion)</td>
+    </tr>
+    <tr style="background: #e8f4e8;">
+      <td class="bold">Total</td>
+      <td class="bold">$500,000</td>
+      <td class="bold">100%</td>
+      <td class="bold">14–16 tháng runway đến Series A metrics</td>
+    </tr>
+  </table>
+
+  <h2 style="margin-top: 14px;">PMF Scorecard &amp; Success Metrics</h2>
+  <div class="two-col">
+    <div>
+      <h3>Aha Moment (đã xác định)</h3>
+      <p class="small">User swap một món không thích → nhận ngay món thay thế cùng lý do dinh dưỡng cụ thể → tiếp tục thực hiện thực đơn cho bữa ăn hôm đó. Xảy ra trong 3 ngày đầu.</p>
+      <h3 style="margin-top: 10px;">PMF Signal Threshold</h3>
+      <ul class="small">
+        <li>&gt;40% user trả lời "Very disappointed" nếu mất sản phẩm (Sean Ellis)</li>
+        <li>D30 retention ≥ 35% trong nhóm đạt compliance D14</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Metrics KHÔNG dùng</h3>
+      <ul class="small">
+        <li>Số lượt tải app</li>
+        <li>Số lần xem thực đơn</li>
+        <li>Tổng số profile created</li>
+      </ul>
+      <h3 style="margin-top: 10px;">Metrics ĐO (actionable)</h3>
+      <ul class="small">
+        <li><strong>Leading:</strong> Menu compliance rate D14 ≥ 50%</li>
+        <li><strong>Lagging:</strong> 100 paying users end of Q1 pilot</li>
+        <li><strong>Quality:</strong> D30 retention ≥ 35% + NPS ≥ 40</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-num">7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 8: ROADMAP + OKRs -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">Product Roadmap + OKRs — Day 20</div>
+
+  <h2>Roadmap Now / Next / Later</h2>
+  <div class="roadmap-grid">
+    <div class="roadmap-col col-now">
+      <div class="col-title">NOW</div>
+      <div class="roadmap-item">
+        <strong>Mẹ bầu mất 20–30 phút/sáng tra Google mà vẫn không chắc "ăn này có tăng đường huyết không"</strong><br>
+        <span class="small">→ Không có nguồn duy nhất đủ tin cậy, cá nhân hoá theo bệnh lý và tuần thai bằng món Việt thực tế.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>User nhận thực đơn nhưng bỏ qua vì có món không hợp khẩu vị — không biết đổi sang món nào vẫn đảm bảo dinh dưỡng</strong><br>
+        <span class="small">→ Thiếu swap tức thì kèm lý do dinh dưỡng cụ thể.</span>
+      </div>
+    </div>
+    <div class="roadmap-col col-next">
+      <div class="col-title">NEXT</div>
+      <div class="roadmap-item">
+        <strong>Gợi ý vẫn generic — chưa học được từ hành vi thực tế của từng người</strong><br>
+        <span class="small">→ Mỗi swap, mỗi compliance là tín hiệu bị bỏ phí vì chưa có feedback loop.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>User không biết cuối ngày mình đạt bao nhiêu % mục tiêu sắt, folate so với tuần thai</strong><br>
+        <span class="small">→ Không có vòng lặp "thấy tiến độ → có động lực tiếp tục".</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>Không có bác sĩ xác nhận — cản trở trust của user Skeptic</strong><br>
+        <span class="small">→ Distribution qua phòng khám bị khoá vì chưa có credentialing pathway.</span>
+      </div>
+    </div>
+    <div class="roadmap-col col-later">
+      <div class="col-title">LATER</div>
+      <div class="roadmap-item">
+        <strong>Mẹ bầu ăn ngoài không biết mình vừa nạp bao nhiêu vi chất vì không có cách log đủ nhanh và chính xác cho món Việt</strong><br>
+        <span class="small">→ Food recognition Việt chưa mature; cần 1M+ ảnh ground-truth.</span>
+      </div>
+      <div class="roadmap-item">
+        <strong>Bác sĩ không có công cụ theo dõi dinh dưỡng bệnh nhân giữa các lần khám</strong><br>
+        <span class="small">→ Clinic integration đòi hỏi regulatory compliance — moat thực sự nếu đạt được.</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 14px;">OKR — Quý này</h2>
+  <div class="okr-box">
+    <div class="okr-o">"Trở thành nguồn dinh dưỡng duy nhất mà mẹ bầu Việt có bệnh lý thai kỳ tin đủ để thay thế Google mỗi sáng."</div>
+
+    <div class="kr-row">
+      <div class="kr-badge">KR1<br>Leading</div>
+      <div>
+        <div class="kr-text"><strong>≥ 50% user trong pilot báo cáo follow thực đơn ít nhất 7/14 ngày đầu tiên.</strong></div>
+        <div class="kr-why">→ Nếu user follow trong 2 tuần đầu, trust đã đủ — đây là tín hiệu sớm nhất cho thấy retention và revenue sẽ đến.</div>
+      </div>
+    </div>
+    <div class="kr-row">
+      <div class="kr-badge">KR2<br>Lagging</div>
+      <div>
+        <div class="kr-text"><strong>≥ 20% user đạt compliance D14 chuyển sang gói trả phí trong 30 ngày đầu — đạt tổng 100 paying users cuối quý.</strong></div>
+        <div class="kr-why">→ 100 paying users = minimum viable revenue signal để justify Series A conversation.</div>
+      </div>
+    </div>
+    <div class="kr-row">
+      <div class="kr-badge">KR3<br>Quality</div>
+      <div>
+        <div class="kr-text"><strong>D30 retention ≥ 35% trong nhóm paying users và NPS ≥ 40 đo ở cuối tuần thứ 4.</strong></div>
+        <div class="kr-why">→ Retention ≥ 35% chứng minh habit hình thành bền, không phải curiosity. NPS ≥ 40 = ngưỡng word-of-mouth hoạt động tự nhiên trong cộng đồng mẹ bầu.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-num">8</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 9: DEPENDENCY MAP + CRITICAL PATH -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="section-header">Dependency Map + Critical Path — Day 20</div>
+
+  <h2>3 External Dependencies — Kill Risks in 30 Days</h2>
+
+  <div class="risk-card">
+    <div class="risk-title">D1 · OpenAI API — Pricing &amp; Availability</div>
+    <p class="small">
+      <span class="risk-label risk-worst">Worst case</span>OpenAI tăng giá GPT-4o hoặc áp rate limit → chi phí per-user vượt ngưỡng unit economics, menu generation bị chặn.<br>
+      <span class="risk-label risk-planb">Plan B</span>Switch Claude Sonnet (Anthropic) qua LiteLLM router — prompt đã chuẩn hoá, chỉ thay endpoint và test output format.<br>
+      <span class="risk-label risk-cost">Cost</span>$0 setup (LiteLLM open source) + 3–5 ngày kỹ thuật.
+    </p>
+  </div>
+
+  <div class="risk-card">
+    <div class="risk-title">D2 · Apple App Store Review — Health / Medical Category</div>
+    <p class="small">
+      <span class="risk-label risk-worst">Worst case</span>App bị reject vì claim "hỗ trợ tiểu đường thai kỳ" bị classify là medical device → không thể launch iOS trong 30 ngày.<br>
+      <span class="risk-label risk-planb">Plan B</span>Launch Progressive Web App (PWA) — distribute trực tiếp qua link Facebook group, user cài bằng "Add to Home Screen".<br>
+      <span class="risk-label risk-cost">Cost</span>$0 + 2 ngày kỹ thuật. Đánh đổi: mất push notification native, đủ để chạy pilot 500 user đầu.
+    </p>
+  </div>
+
+  <div class="risk-card">
+    <div class="risk-title">D3 · Viện Dinh dưỡng Quốc gia — Data Access &amp; Legal Basis</div>
+    <p class="small">
+      <span class="risk-label risk-worst">Worst case</span>Không ký được MOU → nutrition DB thiếu legal backing, không thể publish nutrition claim cho bệnh lý.<br>
+      <span class="risk-label risk-planb">Plan B</span>USDA FoodData Central (public domain) + 1 dietitian freelance build &amp; verify Vietnamese food mapping cho 150 món phổ biến nhất.<br>
+      <span class="risk-label risk-cost">Cost</span>$2,000–3,000 USD + 10 ngày. Dietitian sign-off đồng thời tạo credibility với bác sĩ sản.
+    </p>
+  </div>
+
+  <h2 style="margin-top: 12px;">Critical Path — NOW Tasks</h2>
+  <div class="cp-container">CRITICAL PATH (chuỗi dài nhất — task nào slip, toàn bộ slip):
+
+  [T1 Nutrition DB] → [T2 Menu Generation] → [T3 Meal Swap] → [T4 App Build] → [T5 Launch]
+       10 ngày              14 ngày                7 ngày            5 ngày        7–14 ngày
+       ★ BLOCK              ★ BLOCK                ★ BLOCK           ★ BLOCK
+
+PARALLEL (không blocking critical path — chạy ngay từ ngày 1):
+
+  [T0 Onboarding &amp; Profile] ─────────────────────────────────────────→ merge vào T4
+        5 ngày (song song T1)
+
+  [T6 Pilot Recruitment — 500 mẹ bầu via Facebook groups] ════════════ chạy suốt</div>
+
+  <table class="cp-table" style="margin-top: 8px;">
+    <tr><th>Task</th><th>Blocking</th><th>Hậu quả nếu trễ 1 tuần</th><th>Plan B</th></tr>
+    <tr><td><strong>T1 Nutrition DB</strong></td><td>T2→T3→T4→T5</td><td>Không có data → không có menu → không launch</td><td>D3 Plan B: USDA + dietitian</td></tr>
+    <tr><td><strong>T2 Menu Generation</strong></td><td>T3→T4→T5</td><td>Core feature chưa xong → Aha Moment không xảy ra</td><td>D1 Plan B: Claude Sonnet</td></tr>
+    <tr><td><strong>T3 Meal Swap</strong></td><td>T4→T5</td><td>Pilot không validate được PMF — KR1 không đo được</td><td>Giảm scope: swap manual trước</td></tr>
+    <tr><td><strong>T5 Launch</strong></td><td>—</td><td>Pilot không có user để đo KR1, KR2, KR3</td><td>D2 Plan B: PWA trong 2 ngày</td></tr>
+  </table>
+
+  <div class="highlight" style="margin-top: 10px; font-size: 9.5pt;">
+    <strong>Trigger rule:</strong> Nếu D3 (Nutrition DB) không resolve trong 7 ngày đầu → kích hoạt USDA Plan B ngay, không chờ đàm phán tiếp. Tổng critical path: <strong>43 ngày</strong> (App Store approve) / <strong>38 ngày</strong> (PWA fallback).
+  </div>
+
+  <div class="cover-footer">
+    <span><strong>Phụ lục:</strong> Day 18 Financial Model → <em>Day18-AI-Product-Finance-2A202600015.xlsx</em> (cùng thư mục)</span>
+    <span>PRD đầy đủ → <em>day17_submission.md</em></span>
+    <span>9</span>
+  </div>
+</div>
+
+</body>
+</html>
