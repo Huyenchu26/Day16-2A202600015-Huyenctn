@@ -34,5 +34,3 @@
 → Clinic integration đòi hỏi partnership lâm sàng, regulatory compliance, và workflow bác sĩ — không phù hợp cho MVP nhưng là moat thực sự nếu đạt được.
 
 ---
-
-*Nguồn: RICE Workshop 1 — F3 Meal Swap (960), F2 Menu Gen (600), F1 Onboarding (500), F5 Nutrition Summary (280), F4 Photo Logging (50)*
