@@ -37,7 +37,7 @@
 >
 > Bọn mình đã lập tức tạm ngưng tính năng AI sinh thực đơn tự động cho tất cả user để rà soát lại toàn bộ bộ lọc an toàn (whitelist). Bọn mình sẽ chỉ mở lại khi chuyên gia dinh dưỡng đã xác nhận không còn lỗ hổng.
 >
-> Để thể hiện sự chân thành, mình đã hoàn trả 100% phí đăng ký của bạn và gửi tặng bạn gói Premium trọn đời. Dù bạn có tiếp tục dùng NestAI hay không, mình vẫn muốn gửi lời xin lỗi sâu sắc nhất. Mình sẽ update công khai nguyên nhân và cách khắc phục trong hôm nay."
+> Để thể hiện sự chân thành, mình đã hoàn trả 100% phí đăng ký của bạn và gửi tặng bạn gói Premium trọn đời. Đây là số điện thoại trực tiếp của mình: 09xx.xxx.xxx. Bất cứ lúc nào bạn cần hoặc có thắc mắc gì, hãy gọi thẳng cho mình nhé. Mình sẽ update công khai nguyên nhân và cách khắc phục trong hôm nay."
 
 ---
 
